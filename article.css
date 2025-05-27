@@ -1,0 +1,1506 @@
+@import url("font.css");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #FFFFFF;
+    position: relative;
+    background-image:
+    url("images/svg/article_background_1.svg"),
+    url("images/svg/article_background_2.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: 163% 47.5%, 115% 91%;
+    background-size: 696px 606px, 272px 240px;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 5550px; /* Подняли линию */
+    left: 0;
+    width: 100%;
+    height: 180px; /* Высота арки */
+    background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'><path fill='%23EFF5FB' d='M0,90 C300,50 1140,50 1440,90 L1440,100 L0,100Z'></path></svg>") no-repeat bottom center;
+    background-size: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Header */
+.header {
+    display: flex;
+    min-height: 76px;
+    /* padding: 14px;*/
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #EFF5FB;
+}
+
+.header__container {
+    width: 83%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__con {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__list{
+    padding: 0 1.8vw 0 3.6vw;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1.8vw;
+}
+
+.header__link {
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
+    font-family: 'Montserrat-Medium', sans-serif;
+    line-height: 14px; /* Межстрочное расстояние */
+    letter-spacing: 0.25px;
+    transition: color 0.3s;
+}
+
+.header__link:hover {
+    color: #16C8BB; /* Цвет при наведении */
+}
+
+.header_btn{
+    width: 230px;
+    min-height: 48px;
+    flex: 0 0 230px;
+    border: none;
+    border-radius: 5px;
+    background-color: #E3F5F5;
+    color: #03B2A5;
+    font-size: 16px;
+    font-family: 'Montserrat-Bold', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.header_btn:hover {
+    background-color: rgb(22, 200, 187, 0.2); /* Цвет при наведении */
+}
+
+/* Бургер скрываем на десктопе */
+.header__burger {
+    display: none;
+    cursor: pointer;
+}
+
+/* Header */
+
+
+.main {
+    width: 83%;
+    margin: 0 auto;
+}
+
+
+/* Nav */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 16px 0 54px;
+    
+    font-size: 12px;
+    color: rgba(51, 51, 51, 0.7);
+    font-family: 'Montserrat-Regular', sans-serif;
+    letter-spacing: 0.25px;
+    line-height: 18px;
+}
+
+.breadcrumb a {              /* «Главная», «Блог» */
+  flex: 0 0 auto;            /* не сжимать, не растягивать */
+  white-space: nowrap;
+}
+
+.breadcrumb__current {       /* длинный заголовок статьи */
+  flex: 1 1 auto;            /* можно сжимать, займёт остаток строки */
+  min-width: 0;              /* КЛЮЧ для ellipsis внутри flex-контейнера */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;   /* «…» при обрезке */
+}
+
+.breadcrumb svg {            /* стрелочки-разделители */
+  flex: 0 0 auto;            /* сохраняют размер */
+  width: 6px;
+  height: 12px;
+}
+
+.breadcrumb__home,
+.breadcrumb__blog {
+    text-decoration: none;
+    color: rgba(51, 51, 51, 0.7);
+    transition: color 0.3s;
+}
+
+.breadcrumb__home:hover {
+    color: #000000; /* Темнее при наведении */
+}
+
+.breadcrumb__blog:hover {
+    color: #000000; /* Темнее при наведении */
+}
+/* Nav */
+
+
+/* Основной контейнер контента */
+.page_content { 
+    display: flex;
+    justify-content: space-between;
+}
+/* Основной контейнер контента */
+
+
+/* Статья */
+.article {
+    width: 727px;
+    font-size: 16px;
+    color: #333333;
+    font-family: 'Montserrat-Medium', sans-serif;
+    line-height: 24px; /* Межстрочное расстояние */
+    margin: 0 24px 0 0;
+}
+
+.article p {    
+    margin: 0;
+}
+
+.article__title {    
+    font-size: 48px;
+    color: #333333;
+    font-family: 'Montserrat-Bold', sans-serif;
+    line-height: 56px;    
+    margin: 0 0 16px;
+    max-width: 690px;
+}
+
+/* Строка с автором и датой */
+.article__info {
+    font-size: 14px;
+    color: #494949;
+    font-family: 'Montserrat-Regular', sans-serif;
+    line-height: 29px; /* Межстрочное расстояние */
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+}
+
+.article__info p {
+    margin: 0;
+}
+
+.article__info-date::before {
+    content: "•";
+    margin: 0 8px;
+    color: #494949;
+}
+
+.article__info-tag{
+    display: none;
+}
+
+.article__info-tag:hover{
+    color: #072675;
+}
+
+.article__info-tag::before {
+    content: "•";
+    margin: 0 8px;
+    color: #494949;
+}
+/* Строка с автором и датой */
+
+.article__image {
+    width: 100%;
+}
+
+.article__image-1440{
+    display: flex;
+    justify-content: center;
+}
+.article__image-414 {
+    display: none;
+}
+
+.article__image-320 {
+    display: none;
+}
+
+/* Текст статьи */
+.article__content {
+    width: 100%; /* При желании ограничить ширину */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.article-content-block-1,
+.article-content-block-2,
+.article-content-block-3,
+.article-content-block-4{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+.article-content-block-5 {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+h3 {
+    font-size: 16px;
+    color: #333333;
+    font-family: 'Montserrat-Bold', sans-serif;
+    line-height: 24px; /* Межстрочное расстояние */
+    margin: 0;
+}
+
+/* Содержание, список */
+.article-content-block-1_list { 
+    padding: 0;
+    margin: 0;
+}
+
+.article-content-block-1_list,
+.article-content-block-1_list ul {
+    list-style: none;
+}
+
+.article-content-block-1_list li{
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.article-content-block-1_list > li{   
+    position: relative;    /* база для ::before */
+    padding-left: 18px;    /* место под маркер (8 px + зазор) */
+    margin-bottom: 8px;
+}
+
+/* кастомный кружок */
+.article-content-block-1_list > li::before {
+  content: '';
+  position: absolute;
+  left: 0;               /* прижимаем к краю */
+  top: 0.5em;            /* вертикальное выравнивание — подгоняется глазом */
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #03B2A5;   /* тот же цвет, что в SVG */
+}
+
+.article-content-block-1_list li:last-child {
+  margin-bottom: 0;        /* у последнего отступ не нужен */
+}
+
+.article-content-block-1_list-link {
+    color: #333333;
+    transition: color 0.3s;
+}
+
+.article-content-block-1_list-link:hover {
+    color: #16C8BB; /* Цвет при наведении */
+}
+/* Содержание, список */
+
+h2 {
+    font-size: 24px;
+    color: #333333;
+    font-family: 'Montserrat-Bold', sans-serif;
+    line-height: 32px; /* Межстрочное расстояние */
+    margin: 0;
+}
+
+/* Цитата */
+.article-content-block-2_quote {
+    position: relative;
+    background: #F3F7FE; 
+    border: none;
+    border-radius: 16px;
+    padding: 34px 24px 24px;
+    margin: 24px 0 0;
+    font-family: 'Montserrat-Italic', sans-serif;
+}
+  
+/* Автор цитаты */
+.article-content-block-2_author {
+    margin-top: 0.5rem;
+    font-family: 'Montserrat-Bold', sans-serif;
+}
+  
+.article-content-block-2_image {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+}
+
+.article-content-block-3_list { 
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.article-content-block-3_list > li{   
+    position: relative;    /* база для ::before */
+    padding-left: 20px;    /* место под маркер (8 px + зазор) */
+    margin-bottom: 16px;
+}
+
+/* кастомный кружок */
+.article-content-block-3_list > li::before {
+  content: '';
+  position: absolute;
+  left: 0;               /* прижимаем к краю */
+  top: 0.5em;            /* вертикальное выравнивание — подгоняется глазом */
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #03B2A5;   /* тот же цвет, что в SVG */
+}
+
+.article-content-block-3_list li:last-child {
+  margin-bottom: 0;        /* у последнего отступ не нужен */
+}
+
+.article-content-block-4 p {
+    font-size: 14px;
+    color: #868686;
+    font-family: 'Montserrat-Regular', sans-serif;
+    line-height: 130%; /* Межстрочное расстояние */
+    letter-spacing: 0.5px;
+}
+
+/* Цитата */
+.article-content-block-5_quote {
+    position: relative;
+    font-family: 'Montserrat-Italic', sans-serif;
+    text-align: center;
+    background-image: url("images/svg/article_quote_2.svg");    /* Не повторяем, центрируем и масштабируем под размер контейнера */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain; /* или cover, или «100px 100px» */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.article-content-block-5_quote p {
+    width: 485px;    
+    margin: 24px 106px 48px 102px;
+}
+
+.article-content-block-5_block-photo {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 24px;
+}
+
+/* Упражнение */
+.article-content-block-5_exercise {
+    border: none;
+    border-radius: 16px;
+    padding: 24px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.exercise_1 {
+    background: #FEFAEC;
+}
+
+.exercise_2 {
+    background: #FFF3EB;
+}
+
+.exercise_3 {
+    background: rgba(3, 178, 165, 0.1);
+}
+
+.article-content-block-5_table-photo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, auto);
+    gap: 24px;
+}
+
+.pair {
+    margin: 0;
+}
+
+
+.article-content-block-5_table-photo-1 {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.article-content-block-5_image {
+    display: flex;
+    justify-content: center;
+}
+
+/* Tags */
+.article-info-tags {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 4px;
+    margin: 0 0 48px 0;
+}
+
+.article__info-tag:first-child::before {
+    content: "";
+    margin: 0;
+}
+/* Tags */
+
+/* Статья */
+
+
+/* Реклама */
+.sidebar {
+    width: 282px;
+    height: fit-content;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    row-gap: 24px;         /* расстояние между рядами */
+    column-gap: 16px;      /* (опционально) между столбцами */
+}
+
+.ads_block {    
+    background: #FFFFFF;
+    border: #DEDEDE solid 1px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s;
+    text-align: center;
+    width: 282px;
+}
+
+.ads_block:hover {
+    transform: scale(1.01);
+}
+
+
+/* Первый блок рекламы */
+.ads_block_first {    
+    background: #E6F0FD;
+    border: none;
+}
+
+.ads_block_first-image {
+    padding: 24px 12.5px;
+}
+
+.ads_block_first-content {
+    padding: 0 24px 24px;
+}
+
+.ads_block_first-title {
+    margin: 0;
+    font-size: 18px;
+    color: #333333;
+    font-family: 'Montserrat-Bold', sans-serif;
+    line-height: 24px; /* Межстрочное расстояние */
+}
+
+.ads_block_first-description {
+    font-size: 14px;
+    color: #333333;
+    font-family: 'Montserrat-Regular', sans-serif;
+    line-height: 20px; /* Межстрочное расстояние */
+    margin: 8px auto 0;
+}
+
+.button_white_text {    
+    border: none;
+    border-radius: 4px;
+    background-color: #35B3A9;
+    font-size: 16px;    
+    color: #FFFFFF;
+    font-family: 'Montserrat-Bold', sans-serif;       
+    height: 48px;
+    letter-spacing: 0.25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button_white_text:hover {
+    background-color: rgb(48, 161, 152); /* Цвет при наведении */
+}
+
+.button_ads_block_first {    
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 24px;
+}
+/* Первый блок рекламы */
+
+/* Второй блок рекламы */
+.ads_block_second {
+    position: relative;    
+}
+
+.ads_block_second__tags {
+    display: flex;
+    flex-direction: column; /* Располагаем теги вертикально */
+    align-items: flex-start; /* Выравниваем их по левому краю */
+    gap: 8px; /* Делаем небольшой отступ между тегами */
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}
+
+.ads_block_second__tag {
+    margin: 0;
+    border: none;
+    background: rgba(243, 244, 248, 0.7);
+    border-radius: 6px;
+    padding: 0px 6px;    
+    font-size: 12px;    
+    color: #333333;
+    font-family: 'Montserrat-Medium', sans-serif;
+    line-height: 18px;
+    letter-spacing: 0.25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.ads_block_second-image{
+    padding: 24px 81px 16px;
+    display: flex;
+    justify-content: center; /* по главной (x) оси */
+    align-items: center;
+}
+
+.ads_block_second-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;    
+    color: #333333;
+    font-family: 'Montserrat-Regular', sans-serif;
+    line-height: 20px; /* Межстрочное расстояние */
+    padding: 0 16px 36px;          
+}
+
+.ads_block_second-personal-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 16px;
+    margin: 0;
+}
+
+.ads_block_second-name {
+    font-size: 20px;
+    color: #333333;
+    font-family: 'Montserrat-Bold', sans-serif;
+    line-height: 28px; /* Межстрочное расстояние */
+    margin: 0;
+}
+
+.ads_block_second-profession {
+    font-size: 16px;
+    color: #333333;
+    font-family: 'Montserrat-SemiBold', sans-serif;
+    line-height: 24px; /* Межстрочное расстояние */
+    margin: 0;
+}
+
+.ads_block_second-experience {
+    color: #A2A7B1;
+    font-family: 'Montserrat-Medium', sans-serif;
+    padding-top: 4px;
+    margin: 0;
+}
+
+.ads_block_second-specialization {
+    border-top: 1px solid #DEDEDE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.ads_block_second-specialization-title{
+    font-size: 16px;
+    color: #333333;
+    font-family: 'Montserrat-Bold', sans-serif;
+    line-height: 24px; /* Межстрочное расстояние */
+    margin-top: 16px;
+    margin-bottom: 8px;    
+    text-align: left;
+}
+
+.ads_block_second-specialization-list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+/* каждый пункт */
+.ads_block_second-specialization-list li {
+  position: relative;    /* база для ::before */
+  padding-left: 18px;    /* место под маркер (8 px + зазор) */
+  line-height: 1.4;      /* просто пример типографики */
+  margin-bottom: 8px;
+}
+
+/* кастомный кружок */
+.ads_block_second-specialization-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;               /* прижимаем к краю */
+  top: 0.45em;            /* вертикальное выравнивание — подгоняется глазом */
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #03B2A5;   /* тот же цвет, что в SVG */
+}
+
+.ads_block_second-specialization-list li:last-child {
+  margin-bottom: 0;        /* у последнего отступ не нужен */
+}
+
+
+.button_ads_block_second {    
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 16px;
+}
+/* Второй блок рекламы */
+
+/* Третий блок рекламы */
+.ads_block_third {
+    border: none;
+    height: 292px;
+}
+
+.ads_block_third-link{
+    text-decoration: none;
+}
+
+.ads_block_third-image-1440{
+    display: flex;
+    justify-content: center;
+}
+
+.ads_block_third-image-1024 {
+    display: none;
+}
+
+.ads_block_third-image-768 {
+    display: none;
+}
+
+.ads_block_third-image-414 {
+    display: none;
+}
+
+.ads_block_third-image-320 {
+    display: none;
+}
+
+/* Третий блок рекламы */
+
+/* Четвертый блок рекламы */
+.ads_block_fourth {
+    margin: 0;
+    margin-bottom: 59px;    
+    position: relative; 
+}
+
+.ads_block_fourth-content {    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-start;
+    font-size: 18px;    
+    color: #333333;
+    font-family: 'Montserrat-Bold', sans-serif;
+    line-height: 26px; /* Межстрочное расстояние */
+    padding: 32px;     
+}
+
+.ads_block_fourth-title {
+    margin: 0;
+    color: #2963A3;
+    margin-top: 6px;
+    text-align: left;
+}
+
+.ads_block_fourth-title span {
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.ads_block_fourth-description {
+    margin: 0;
+    font-size: 14px;    
+    color: #011632;
+    font-family: 'OpenSans-Regular', sans-serif;
+    line-height: 20px; /* Межстрочное расстояние */
+    text-align: left;
+}
+
+.ads_block_fourth-cost {
+    margin: 0;
+    font-size: 24px;    
+    color: #011632;
+    line-height: 32px;
+    text-align: left;
+}
+
+.button_ads_block_fourth {
+    width: 108px;
+    height: 48px;
+}
+
+.ads_block_fourth-image {
+    position: absolute;
+    top: 190px;
+    left: 150px;
+}
+
+/* Четвертый блок рекламы */
+/* Реклама */
+
+
+/* Раздел с выбором специалиста внизу страницы */
+.page_content-block-selection{
+    display: flex;
+    justify-content: space-between;
+    padding: 72px 29px 102px 0;
+    border-top: 1px solid #DEDEDE;
+}
+
+.page_content-block-selection-info {
+    width: 349px;
+    font-size: 18px;
+    color: #333333;
+    font-family: 'Montserrat-Regular', sans-serif;
+    line-height: 26px; /* Межстрочное расстояние */
+}
+
+.page_content-block-selection p {
+    padding: 0;
+    margin: 24px 0 32px 0;
+}
+
+.page_content-block-selection-info_btn {    
+    border: none;
+    border-radius: 4px;
+    background-color: #16C8BB;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-family: 'Montserrat-Bold', sans-serif;
+    width: 238px;
+    height: 60px;
+    padding: 20px, 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.page_content-block-selection-info_btn:hover {
+    background-color: rgb(48, 161, 152); /* Цвет при наведении */
+}
+/* Раздел с выбором специалиста внизу страницы */
+
+
+/* Footer */
+.footer {
+    background-color: #2963A3; /* Синий цвет */
+    color: white;
+    font-size: 16px;
+    font-family: 'Montserrat-Bold', sans-serif;
+    padding: 40px 0px 17px;
+}
+
+.footer__container {
+    width: 83%;
+    margin: 0 auto;   
+    display: flex;
+    justify-content: space-between; /* Колонки равномерно распределены */
+    margin-bottom: 24px;
+}
+
+.footer__container > :nth-child(2n) {
+    justify-self: start; /* Выравниваем только 2-й столбец влево */
+}
+
+.footer__container > :nth-child(3n) {
+    justify-self: end; /* Выравниваем только 3-й столбец вправо */
+}
+
+/* Footer Menu */
+.footer__menu {
+    display: flex;
+    justify-content: space-between; /* Колонки равномерно распределены */
+    gap: 93px; /* Отступ между колонками */
+}
+
+.footer__column {
+    flex: 1; /* Обе колонки занимают равное пространство */
+    min-width: 111px; /* Минимальная ширина для адаптивности */
+}
+
+.footer__column ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer__column ul li {
+    font-size: 16px;
+    color: #FFFFFF;
+    font-family: 'Montserrat-Bold', sans-serif;
+    line-height: 24px;
+}
+
+.footer__column ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer__column ul li a:hover {
+    color: #16C8BB; /* Цвет при наведении */
+}
+/* Footer Menu */
+
+/* Footer Форма подписки */
+
+.footer__subscribe-container {
+    width: 384px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    
+}
+
+.footer__subscribe-title {
+    font-size: 18px;
+    color: #FFFFFF;
+    font-family: 'Montserrat-Bold', sans-serif;
+    line-height: 26px; /* Межстрочное расстояние */
+    margin-bottom: 8px;
+    
+}
+
+
+.footer__subscribe p {
+    margin: 0;
+}
+
+.footer__subscribe-form {
+    display: flex;
+    justify-content: flex-start;
+    width: 384px;
+}
+
+.subscribe-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1fr;
+    background: white;
+    border-radius: 6px;
+    border: none;
+    overflow: hidden;
+    margin: 8px 0px;
+}
+
+.subscribe-input {
+    flex: 1;
+    height: 48px;
+    border: none;
+    padding-left: 16px; /* Отступ слева */
+    padding-right: 65px; /* Оставляем место для кнопки */
+    outline: none;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 14px;
+    color: #9D9D9D;
+    font-family: 'Montserrat-Regular', sans-serif;
+    line-height: 20px; /* Межстрочное расстояние */
+    
+    
+}
+
+
+.subscribe-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 48px;
+    flex-shrink: 0;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    left: 1px; /* Смещаем кнопку влево */
+}
+
+.subscribe-button svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.footer__subscribe-text {
+    font-size: 12px;
+    color: #FFFFFF;
+    font-family: 'Montserrat-Regular', sans-serif;
+    line-height: 18px; /* Межстрочное расстояние */
+    letter-spacing: 0.25px;
+    opacity: 0.7;    
+    width: 486px;
+}
+/* Footer Форма подписки */
+
+/* Footer Соцсети */
+.footer__social {
+    display: flex;
+    flex-direction: column;    
+    align-items: flex-start;
+    gap: 20px;
+    min-width: 221px;
+}
+
+.footer__partner {
+    display: flex;        
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.footer__icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer__icons img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s;
+}
+
+.footer__icons img:hover {
+    opacity: 0.7;
+}
+/* Footer Соцсети */
+
+.footer__bottom {
+    width: 83%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    padding-top: 16px;
+    border-top: 1px solid rgba(157, 157, 157, 0.3);    
+    color: #FFFFFF;
+    font-size: 14px;
+    font-family: 'Montserrat-Regular', sans-serif;
+    line-height: 20px;
+    opacity: 0.7;      
+}
+
+.footer__bottom p {
+    margin: 0;
+}
+
+.footer__bottom a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer__bottom a:hover {
+    color: #16C8BB;
+}
+
+/* Footer */
+
+
+@media screen and (max-width: 1200px) {
+    .header__container,
+    .main,
+    .footer__container,
+    .footer__bottom {
+        width: 95%; /* Немного увеличиваем ширину контейнеров для планшетов */
+    }
+
+    body {
+        background-image: none !important;
+    }
+
+    body::before {
+        display: none;
+    }
+
+    .article-info-tags,
+    .page_content-block-selection {
+        display: none;
+    }
+
+    .article-content-block-1_list ul,
+    .article-content-block-1_list li:nth-child(2),
+    .article-content-block-1_list li:nth-child(3) {
+        display: none;
+    }
+
+    .article__info-tag {
+    display: block;
+    margin: 0;
+    font-size: 14px;
+    color: #2963A3;
+    font-family: 'Montserrat-Regular', sans-serif;
+    line-height: 20px; /* Межстрочное расстояние */
+    text-decoration: none;    
+    }    
+
+    .article-content-block-2_quote {
+    margin: 0;
+    }
+
+    .article-content-block-5 {
+    margin-bottom: 71px;
+    }
+    
+    .footer__subscribe-text {
+        width: 450px;
+    }
+    
+}
+
+@media screen and (max-width: 1065px) {
+    .sidebar {
+    width: 222px;
+    }
+
+    .ads_block_first-image svg{
+    width: 181px;
+    height: 145px;
+    }
+
+    .ads_block {
+    width: 222px;
+    }
+
+    .ads_block_second-image{
+    padding: 21px 51px 16px;
+    }
+
+    .ads_block_second-content {    
+    padding: 0 24px 17px;          
+    }
+
+    .ads_block_third-image-1440{
+        display: none;
+    }
+
+    .ads_block_third-image-1024 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .ads_block_fourth-content {
+        padding: 24px;
+    }
+
+    .ads_block_fourth {
+        height: 308px;
+    }
+
+    .ads_block_fourth-image {
+    position: absolute;
+    top: 230px;
+    left: 130px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    /* Скрываем пункты меню */
+    .header__list,
+    .header_btn {
+        display: none;
+    }
+
+    /* Показываем бургер-иконку */
+    .header__burger {
+        display: block;
+    }
+
+    .page_content {
+    display: flex;
+    flex-wrap: wrap;    
+    }
+
+    .article {
+    width: 728px;
+    }
+
+    .article-content-block-5 {
+        margin-bottom: 23px;
+    }
+
+    .sidebar {
+    width: 728px;
+    row-gap: 36px;         /* расстояние между рядами */
+    }
+
+    .ads_block{
+    width: 356px;
+    height: fit-content;
+    }
+
+    .ads_block_first{
+    height: 481px;
+    }
+
+    .ads_block_first-image svg {
+    width: 256px;
+    height: 206px;
+    }
+
+    .ads_block_first-image {
+        padding: 22.55px 49.5px 24px;
+    }
+
+    .ads_block_first-content {
+        padding: 0 23px 14.45px;
+    }
+
+    .ads_block_second{
+    height: 481px;
+    }
+
+    .ads_block_second-image {
+        padding: 24px 117.5px 16px;
+    }
+
+    .ads_block_second-content {
+        padding: 0 52.5px 36px;
+    }
+
+    .ads_block_third-image-1024 {
+        display: none;
+    }
+
+    .ads_block_third-image-768 {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .ads_block_fourth-content {
+        padding: 10px 42.93px 4px 21.47px;
+    }
+
+    .ads_block_fourth {
+        height: 248px;
+    }
+
+    .ads_block_fourth-image {
+    position: absolute;
+    top: 150px;
+    left: 210px;
+    }
+    
+    .footer__container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 23px;
+    }
+
+    .footer__subscribe-text {
+        width: 384px;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .article {
+        margin: 0;        
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .article-content-block-5_quote p {
+        width: 374px;
+        margin: auto;
+        
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .article-content-block-5_block-photo {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        height: 380px;
+        overflow: hidden;
+    }
+
+    .article-content-block-5_block-photo_img {
+        width: 100%;
+    }
+
+    .article-content-block-5_table-photo {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        gap: 16px;
+    }
+
+    .article-content-block-5_table-photo-1 {
+    margin-bottom: 16px;
+    }
+}
+
+@media screen and (max-width: 473px) {
+    .header__container,
+    .main,
+    .footer__container,
+    .footer__subscribe-text,
+    .footer__bottom {
+        width: 91%; /* Немного увеличиваем ширину контейнеров для планшетов */
+    }
+
+    .breadcrumb {
+        margin: 16px 0 32px;
+    }
+
+    .article__content {
+    margin-top: 16px;
+    }
+
+    .article__title{    
+        font-size: 32px;
+        line-height: 40px;    
+        margin: 0px auto 8px;
+    }
+
+    .article__info{
+        margin: 0 auto 16px;
+    }
+
+    .article__image-1440{
+        display: none;
+    }
+    .article__image-414 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .article-content-block-5 {
+        margin-bottom: 56px;
+    }
+
+    .ads_block{
+        width: 374px;
+        height: fit-content;
+    }
+
+    .ads_block_first-image {
+        padding: 24px 58.5px 24px;
+    }
+
+    .ads_block_first-content {
+        padding: 0 23px 44px;
+    }
+
+    .ads_block_second-image {
+        padding: 24px 127px 16px;
+    }
+
+    .ads_block_second-content {
+        padding: 0 62px 36px;
+    }
+
+    .ads_block_third-image-768 {
+        display: none;
+    }
+
+    .ads_block_third-image-414 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .ads_block_fourth {
+        height: fit-content;
+        margin-bottom: 127px;
+    }
+
+    .ads_block_fourth-content {
+        padding: 24px;
+    }
+
+    .footer__subscribe-form {
+        width: 100%;
+    }
+
+    .footer__subscribe-text{
+        width: 375px;
+    }
+
+    
+    .footer__subscribe-container {
+        width: 375px;
+    }
+
+    .footer__bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 413px) {
+    .footer__subscribe-container, /*нужно, без него footer__subscribe-title вылетает за экран*/
+    .footer__subscribe-text {
+        width: 90%;
+    }
+
+    .article__content {
+    gap: 16px;
+    margin-top: 16px;
+    }
+
+    .article-content-block-1,
+    .article-content-block-2,
+    .article-content-block-3,
+    .article-content-block-4{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .article-content-block-5 {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }    
+
+    .article__title {    
+    font-size: 24px;
+    line-height: 32px;
+    }
+    
+    .article__image-414 {
+        display: none;
+    }
+
+    .article__image-320 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .article-content-block-3_list > li {
+    margin-bottom: 8px;
+    }
+
+    .article-content-block-5_quote p {
+        width: 288px;
+        margin: auto;
+        
+    }
+
+    .article-content-block-5 {
+        margin-bottom: 16px;
+    }
+
+    .ads_block {
+    width: 288px;
+    height: fit-content;
+    }
+
+    .ads_block_first-image {
+        padding: 24px 15px 24px;
+    }
+
+    .ads_block_first-content {
+        padding: 0 24px 24px;
+    }
+
+    .ads_block_second-image {
+        padding: 24px 84px 16px;
+    }
+
+    .ads_block_second-content {
+        padding: 0 19px 36px;
+    }
+
+    .ads_block_third-image-414 {
+        display: none;
+    }
+
+    .ads_block_third-image-320 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .ads_block_fourth {
+        height: fit-content;
+        margin-bottom: 60px;
+    }
+
+    .ads_block_fourth-content {
+        padding: 16px;
+    }
+
+    .ads_block_fourth-image {
+    position: absolute;
+    top: 150px;
+    left: 160px;
+    }
+
+    .footer__subscribe-form {
+        width: 288px;
+    }
+
+    .footer__subscribe-text {
+        width: 288px;
+        display: flex;
+        text-align: justify;
+    }
+}
